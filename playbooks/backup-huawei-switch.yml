@@ -1,0 +1,36 @@
+---
+# BACKUP HUAWEI SWITCHES by João Vitor Costa Medeiros
+# Task to create a directory "Switches" with the path "/bkp_year-moth-day/Switches/"
+# Feel free to edit the path.
+- hosts: localhost
+  gather_facts: false
+
+  tasks:
+    - name: Collect Year, Month and Day.
+      setup:
+        filter: "ansible_date_time"
+        gather_subset: "!all"
+    
+    - name: Put today's date in a variable.
+      set_fact:
+        DTG: "{{ ansible_date_time.date }}"
+
+    - name: Create directory with the following path C:\bkp_"year-month-day"\Switches\
+      file:
+        path: /mnt/c/bkp_{{ ansible_date_time.date }}/Switches/
+        state: directory
+  run_once: true
+
+# Task to backup Huawei Switch Config File and save it in the patch "C:/bkp_year-month-day/Switch/hostname.cfg"
+# Remember to change or maintain the same path in both tasks.
+
+- hosts: switches_huawei
+  gather_facts: false
+
+  tasks:
+    - name: Copy the configuration file of each HUAWEI S5700/S5720 Switch and put it in a .cfg file.
+      ce_config:
+        backup: yes
+        backup_options:
+          filename: "{{ inventory_hostname }}.cfg"
+          dir_path: /mnt/c/bkp_{{ hostvars.localhost.DTG }}/Switches/
