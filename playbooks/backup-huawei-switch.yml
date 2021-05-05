@@ -1,6 +1,6 @@
 ---
 # BACKUP HUAWEI SWITCHES by João Vitor Costa Medeiros
-# Task to create a directory "Switches" with the path "/bkp_year-moth-day/Switches/" (Feel free to edit)
+# Task to create a directory "Switches" with the path "C:/bkp_year-month-day/Switches/" (Feel free to edit)
 - hosts: localhost
   gather_facts: false
 
@@ -16,7 +16,7 @@
 
     - name: Create directory with the following path C:\bkp_"year-month-day"\Switches\
       file:
-        path: /mnt/c/bkp_{{ ansible_date_time.date }}/Switches/
+        path: /mnt/c/bkp_{{ hostvars.localhost.DTG }}/Switches/
         state: directory
   run_once: true
 

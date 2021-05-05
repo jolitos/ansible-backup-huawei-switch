@@ -1,6 +1,6 @@
 # Backup Huawei Switches with Ansible
 
-- Basic script to backup Huawei Switch Config Files. This script execute two tasks (create folder and backup a config .cfg file) in one yaml playbook file.
+- Basic script to backup Huawei Switch Config Files from your enviroment.
 
 ## Execution Requirements
 
@@ -15,9 +15,8 @@
 
 ## Variables
 
-- ./ansible.cfg -> Edit your host path if you want
-- ./hosts -> Edit your ansible hosts/switches
-- /group_vars/all.yml -> Edit your user and pass to access the targets via ssh. (Recommended for enviroment with TACACS+ or RADIUS servers)
+- hosts -> Edit your ansible hosts/switches
+- /group_vars/all.yml -> Edit your username and password to access the targets via ssh. (Recommended for enviroment with TACACS+ or RADIUS servers)
 
 ## How to use
 
@@ -31,4 +30,4 @@
 
 ## Author Information
 
-This role was created by [João Vitor Costa Medeiros](https://www.linkedin.com/in/joaovitorcm/)
+This role was created by [João Vitor C. Medeiros](https://www.linkedin.com/in/joaovitorcm/)
