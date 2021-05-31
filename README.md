@@ -20,7 +20,9 @@
 
 ## How to use
 
-`ansible-playbook backup-huawei-switch.yml`
+```bash
+ansible-playbook backup-cisco-switch.yml
+```
 
 ## What does this script do?
 
