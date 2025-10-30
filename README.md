@@ -1,6 +1,6 @@
 # Backup Huawei Switches with Ansible
 
-- Basic script to backup Huawei Switch Config Files from your enviroment.
+- Basic script to backup Huawei Switch Config Files from your environment.
 
 ## Execution Requirements
 
